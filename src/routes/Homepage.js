@@ -23,7 +23,7 @@ function Homepage() {
     });
     const data = await res.json();
     if (data.status === 401 || !data) {
-      navigate("/");
+      navigate("/login");
     } else {
       navigate("/mainpage/afterlogin");
     }
