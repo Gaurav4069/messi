@@ -14,7 +14,7 @@ const AfterLogin = () => {
   const navigate = useNavigate();
   const fetchData = () => {
     axios
-      .get(`messibackend.onrender.com/addcalorie/${user}`)
+      .get(`https://messibackend.onrender.com/addcalorie/${user}`)
       .then((res) => {
         setTotalCalorie(res.data.totalCalorie);
       })
@@ -24,7 +24,7 @@ const AfterLogin = () => {
   };
   useEffect(() => {
     axios
-      .post("messibackend.onrender.com/daymeal", { hostel })
+      .post("https://messibackend.onrender.com/daymeal", { hostel })
       .then((response) => {
         setMeals(response.data);
       })

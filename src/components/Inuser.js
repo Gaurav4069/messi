@@ -10,7 +10,7 @@ const Inuser = (props) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const fetchImage = () => {
     axios
-      .get(`messibackend.onrender.com/getimage/${props.userId}`)
+      .get(`https://messibackend.onrender.com/getimage/${props.userId}`)
       .then((res) => {
         setSelectedFile(res.data.image);
       })
@@ -23,7 +23,7 @@ const Inuser = (props) => {
   }, []);
   const doBlock = () => {
     axios
-      .post(`messibackend.onrender.com/blockUser/${props.userId}`, { time })
+      .post(`https://messibackend.onrender.com/blockUser/${props.userId}`, { time })
       .then((res) => {
         console.log(res);
       })
@@ -49,7 +49,7 @@ const Inuser = (props) => {
   const navigate = useNavigate();
   const fetchData = async () => {
     try {
-      const response = await axios.post(`messibackend.onrender.com/getuser`, {}); // Replace with your actual API endpoint
+      const response = await axios.post(`https://messibackend.onrender.com/getuser`, {}); // Replace with your actual API endpoint
       setUsers(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -76,7 +76,7 @@ const Inuser = (props) => {
 
   const doDelete = async (id) => {
     try {
-      await axios.delete(`messibackend.onrender.com/user/${id}`);
+      await axios.delete(`https://messibackend.onrender.com/user/${id}`);
       setToggle(!toggle);
       fetchData(); // Fetch data after successful deletion
     } catch (err) {
@@ -100,7 +100,7 @@ const Inuser = (props) => {
       <div class="container1">
         <div>
           <img
-            src={`messibackend.onrender.com/${selectedFile}`}
+            src={`https://messibackend.onrender.com/${selectedFile}`}
             alt=""
             style={{ width: "40px", height: "40px", borderRadius: "50%" }}
           />

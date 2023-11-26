@@ -12,7 +12,7 @@ const Inbox = (props) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const fetchImage = () => {
     axios
-      .get(`messibackend.onrender.com/getimage/${props.user}`)
+      .get(`https://messibackend.onrender.com/getimage/${props.user}`)
       .then((res) => {
         setSelectedFile(res.data.image);
       })
@@ -33,7 +33,7 @@ const Inbox = (props) => {
   const navigate = useNavigate();
   const fetchData = async () => {
     try {
-      const response = await axios.get("messibackend.onrender.com/showComplaints"); // Replace with your actual API endpoint
+      const response = await axios.get("https://messibackend.onrender.com/showComplaints"); // Replace with your actual API endpoint
       setComplaints(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -49,7 +49,7 @@ const Inbox = (props) => {
   const doLike = (id) => {
     const user = localStorage.getItem("usersdataid");
     axios
-      .post(`messibackend.onrender.com/comp/liked/${id}`, { user })
+      .post(`https://messibackend.onrender.com/comp/liked/${id}`, { user })
       .then((ans) => {
         console.log(ans);
       })
@@ -60,7 +60,7 @@ const Inbox = (props) => {
 
   const doDelete = async (id) => {
     try {
-      await axios.delete(`messibackend.onrender.com/comp/${id}`);
+      await axios.delete(`https://messibackend.onrender.com/comp/${id}`);
       fetchData(); // Fetch data after successful deletion
     } catch (err) {
       console.log(err);
@@ -73,7 +73,7 @@ const Inbox = (props) => {
   }, [liked, complaints]);
   const doResolve = async (id) => {
     try {
-      await axios.get(`messibackend.onrender.com/comp/resolved/${id}`);
+      await axios.get(`https://messibackend.onrender.com/comp/resolved/${id}`);
     } catch (err) {
       throw err;
     }
@@ -83,7 +83,7 @@ const Inbox = (props) => {
       <div class="container1">
         <div style={{ width: "100px" }}>
           <img
-            src={`messibackend.onrender.com/${selectedFile}`}
+            src={`https://messibackend.onrender.com/${selectedFile}`}
             alt=""
             style={{ width: "40px", height: "40px", borderRadius: "50%" }}
           />

@@ -11,7 +11,7 @@ const Card = (props) => {
 
   const giveRating = async (num) => {
     axios
-      .post("messibackend.onrender.com/givereview", {
+      .post("https://messibackend.onrender.com/givereview", {
         num,
         user,
         mealType: props.time,
@@ -27,7 +27,7 @@ const Card = (props) => {
 
   useEffect(() => {
     axios
-      .post("messibackend.onrender.com/userRating", { user, time: props.time })
+      .post("https://messibackend.onrender.com/userRating", { user, time: props.time })
       .then((res) => {
         const rating = res.data.rating;
 

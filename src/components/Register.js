@@ -33,7 +33,7 @@ const RegisterPage = () => {
       console.log("Password should match confirm password");
     } else {
       axios
-        .post("messibackend.onrender.com/register", { fName, email, regNo, password, cPassword })
+        .post("https://messibackend.onrender.com/register", { fName, email, regNo, password, cPassword })
         .then(() => {
           setFName("");
           setRegNo("");
@@ -57,7 +57,7 @@ const RegisterPage = () => {
       console.log("Password must be greater than 7 characters");
     } else {
       axios
-        .post("messibackend.onrender.com/login", { regNo, password })
+        .post("https://messibackend.onrender.com/login", { regNo, password })
         .then(async (response) => {
           const res = response.data;
           if (res.status === 201) {

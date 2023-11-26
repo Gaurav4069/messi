@@ -80,7 +80,7 @@ const GetUser = () => {
   }, []);
   useEffect(() => {
     axios
-      .post(`messibackend.onrender.com/getuser`, { hostel, role })
+      .post(`https://messibackend.onrender.com/getuser`, { hostel, role })
       .then((users) => setUsers(users.data))
       .catch((error) => {
         console.log(error);

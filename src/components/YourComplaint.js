@@ -10,7 +10,7 @@ const YourComplaint = () => {
   const doLike = (id) => {
     const user = localStorage.getItem("usersdataid");
     axios
-      .post(`messibackend.onrender.com/comp/liked/${id}`, { user })
+      .post(`https://messibackend.onrender.com/comp/liked/${id}`, { user })
       .then((ans) => {
         console.log(ans);
       })
@@ -21,7 +21,7 @@ const YourComplaint = () => {
 
   const ComplaintValid = async () => {
     let token = localStorage.getItem("usersdatatoken");
-    const res = await fetch("messibackend.onrender.com/validUser", {
+    const res = await fetch("https://messibackend.onrender.com/validUser", {
       method: "GET",
       headers: { "Content-Type": "application/json", Authorization: token },
     });
@@ -38,7 +38,7 @@ const YourComplaint = () => {
   const user = localStorage.getItem("usersdataid");
   useEffect(() => {
     axios
-      .post("messibackend.onrender.com/mycomplaint", { user })
+      .post("https://messibackend.onrender.com/mycomplaint", { user })
       .then((response) => setComplaints(response.data))
       .catch((error) => {
         console.log(error);

@@ -23,7 +23,7 @@ const TimeTable = () => {
   const [meals, setMeals] = useState([]);
   const checkData = async () => {
     try {
-      const response = await axios.post("messibackend.onrender.com/finddaymeal", { day });
+      const response = await axios.post("https://messibackend.onrender.com/finddaymeal", { day });
       if (response.data.length === 0) {
         console.log("No data previously found");
         setBreakfast("");
@@ -58,7 +58,7 @@ const TimeTable = () => {
     }
   };
   useEffect(() => {
-    axios.post("messibackend.onrender.com/findmeal", { hostel }).then((response) => {
+    axios.post("https://messibackend.onrender.com/findmeal", { hostel }).then((response) => {
       setMeals(response.data);
     });
   }, []);
@@ -83,7 +83,7 @@ const TimeTable = () => {
   const onFormSubmit = (e) => {
     e.preventDefault();
     axios
-      .put("messibackend.onrender.com/mealupdate", {
+      .put("https://messibackend.onrender.com/mealupdate", {
         hostel,
         day,
         breakfastCalorie,

@@ -13,7 +13,7 @@ const ProfilePage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const fetchImage = () => {
     axios
-      .get(`messibackend.onrender.com/getimage/${user}`)
+      .get(`https://messibackend.onrender.com/getimage/${user}`)
       .then((res) => {
         // console.log("The ans is ", res.data);
         setSelectedFile(res.data.image);
@@ -39,7 +39,7 @@ const ProfilePage = () => {
     formData.append("user", user);
     console.log(formData);
     try {
-      const response = await axios.post("messibackend.onrender.com/upload", formData);
+      const response = await axios.post("https://messibackend.onrender.com/upload", formData);
       setSelectedFile(response.data.image);
     } catch (error) {
       console.error("Error uploading file:", error);
@@ -56,7 +56,7 @@ const ProfilePage = () => {
           <div class="row">
             <div class="col-md-4">
               <div class="profile-img">
-                <img src={`messibackend.onrender.com/${selectedFile}`} alt="" />
+                <img src={`https://messibackend.onrender.com/${selectedFile}`} alt="" />
                 <div class="file btn btn-lg btn-primary">
                   {/* Change Photo */}
                   <input type="file" name="image" onChange={ImageUpload} />

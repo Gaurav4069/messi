@@ -34,7 +34,7 @@ const CreateComplaint = () => {
   // };
   const ComplaintValid = async () => {
     let token = localStorage.getItem("usersdatatoken");
-    const res = await fetch("messibackend.onrender.com/validUser", {
+    const res = await fetch("https://messibackend.onrender.com/validUser", {
       method: "GET",
       headers: { "Content-Type": "application/json", Authorization: token },
     });
@@ -69,7 +69,7 @@ const CreateComplaint = () => {
       console.log("Please enter valid subject and complaint before submitting");
     } else {
       axios
-        .post("messibackend.onrender.com/subComp", formData)
+        .post("https://messibackend.onrender.com/subComp", formData)
         .then(async (response) => {
           // Handle the response
           const res = response.data;

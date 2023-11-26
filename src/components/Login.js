@@ -38,7 +38,7 @@ const LoginPage = () => {
       alert("Password should match confirm password");
     } else {
       axios
-        .post("messibackend.onrender.com/register", {
+        .post("https://messibackend.onrender.com/register", {
           fName,
           email,
           regNo,
@@ -89,7 +89,7 @@ const LoginPage = () => {
       alert("Password must be greater than 7 characters");
     } else {
       axios
-        .post("messibackend.onrender.com/login", { regNo, password })
+        .post("https://messibackend.onrender.com/login", { regNo, password })
         .then(async (response) => {
           setRegNo("");
           setPassword("");

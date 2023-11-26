@@ -79,7 +79,7 @@ const GetComplaint = () => {
   }, []);
   useEffect(() => {
     axios
-      .post("messibackend.onrender.com/showComplaints", { hostel })
+      .post("https://messibackend.onrender.com/showComplaints", { hostel })
       .then((complaints) => setComplaints(complaints.data))
       .catch((error) => {
         console.log(error);

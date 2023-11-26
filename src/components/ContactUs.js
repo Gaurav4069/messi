@@ -9,7 +9,7 @@ const ContactUs = () => {
 
   const messageSubmit = async (event) => {
     event.preventDefault();
-    axios.post("messibackend.onrender.com/sendmessage", { name, email, message }).then((res) => {
+    axios.post("https://messibackend.onrender.com/sendmessage", { name, email, message }).then((res) => {
       console.log(res.data).catch((err) => {
         console.log(err);
       });

@@ -24,8 +24,8 @@ const MyPieChart = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("messibackend.onrender.com/getdata");
-        const users = await axios.get("messibackend.onrender.com/getlength");
+        const response = await axios.get("https://messibackend.onrender.com/getdata");
+        const users = await axios.get("https://messibackend.onrender.com/getlength");
         const noofusers = users.data.length;
         const terms = response.data;
 

@@ -13,7 +13,7 @@ const Complaint = () => {
   const [comment, setComment] = useState("");
   const fetchImage = () => {
     axios
-      .get(`messibackend.onrender.com/fetchimage/${id}`)
+      .get(`https://messibackend.onrender.com/fetchimage/${id}`)
       .then((res) => {
         // console.log("The ans is ", res.data);
         setSelectedImg(res.data.image.data);
@@ -28,7 +28,7 @@ const Complaint = () => {
   const doComment = (event) => {
     event.preventDefault();
     axios
-      .post(`messibackend.onrender.com/comp/commented/${id}`, { user, comment, fname })
+      .post(`https://messibackend.onrender.com/comp/commented/${id}`, { user, comment, fname })
       .then(() => {
         setComment("");
       })
@@ -38,7 +38,7 @@ const Complaint = () => {
   };
   const fetchData = async () => {
     try {
-      const response = await axios.get(`messibackend.onrender.com/complaintbox/${id}`);
+      const response = await axios.get(`https://messibackend.onrender.com/complaintbox/${id}`);
       setComplaints(response.data);
       console.log(response.data);
     } catch (error) {
@@ -80,7 +80,7 @@ const Complaint = () => {
                 {complaints[0].complaint}
                 {selectedImg && (
                   <img
-                    src={`messibackend.onrender.com/${selectedImg}`}
+                    src={`https://messibackend.onrender.com/${selectedImg}`}
                     alt=""
                     className="complaint-image"
                   />

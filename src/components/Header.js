@@ -6,7 +6,7 @@ import axios from "axios";
 
 const LogoutUser = async (history) => {
   let token = localStorage.getItem("usersdatatoken");
-  const res = await fetch("messibackend.onrender.com/logout", {
+  const res = await fetch("https://messibackend.onrender.com/logout", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -34,7 +34,7 @@ const Header = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const fetchImage = () => {
     axios
-      .get(`messibackend.onrender.com/getimage/${user}`)
+      .get(`https://messibackend.onrender.com/getimage/${user}`)
       .then((res) => {
         setSelectedFile(res.data.image);
       })
@@ -59,7 +59,7 @@ const Header = () => {
           >
             {selectedFile && (
               <img
-                src={`messibackend.onrender.com/${selectedFile}`}
+                src={`https://messibackend.onrender.com/${selectedFile}`}
                 style={{ width: "40px", height: "40px" }}
                 alt=""
               />
